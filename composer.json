@@ -1,0 +1,18 @@
+{
+  "name": "concrete5/community_api_client",
+  "description": "This package contains an api client that is able to connect with the community.",
+  "license": "MIT",
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "PortlandLabs\\CommunityApiClient\\": "src/PortlandLabs/CommunityApiClient"
+    }
+  },
+  "require": {
+    "kamermans/guzzle-oauth2-subscriber": "^1.0"
+  },
+  "replace": {
+    "guzzlehttp/guzzle": "*"
+  }
+}
