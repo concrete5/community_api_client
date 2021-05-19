@@ -1,6 +1,6 @@
 # Community Api Client
 
-This is the official api client that is used to communicate with the community site. 
+This is the official api client that is used to communicate with the community site.
 
 Currently the functionality is very limited but it get's extended soon.
 
@@ -16,7 +16,7 @@ You can use the api client to assign achievements.
 The Community API client can be installed using Composer.
 
 Composer
-To install run `composer require portlandlabs/community_api_client`
+To install run `composer require concrete5/community_api_client`
 
 ## Configuration
 
@@ -52,7 +52,7 @@ return [
     'client_secret' => 'your_client_secret'
 ];
 
-``` 
+```
 
 ### Option 3: With the Concrete CMS CLI application
 
@@ -63,7 +63,7 @@ concrete/bin/concrete5 c5:config set community_api_client.endpoint your_endpoint
 concrete/bin/concrete5 c5:config set community_api_client.client_id your_client_id
 concrete/bin/concrete5 c5:config set community_api_client.client_secret your_client_secret
 ```
-  
+
 ## Usage
 
 After you have configured the endpoint you can communicate with the api interface.
@@ -80,4 +80,4 @@ $achievements = $app->make(Achievements::class);
 $success = $achievements->assign("test_handle");
 ```
 
-Currently there is now api documentation available. So if you want to know what functionality is available you need to take a look at the models folder within this repository. 
+Currently there is now api documentation available. So if you want to know what functionality is available you need to take a look at the models folder within this repository.
