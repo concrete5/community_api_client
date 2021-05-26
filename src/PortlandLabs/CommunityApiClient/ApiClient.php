@@ -33,44 +33,70 @@ class ApiClient
         $this->config = $config;
     }
 
+    private function useEnvironmentVariables(): bool
+    {
+        return
+            getenv("API_COMMUNITY_ENDPOINT") !== false &&
+            getenv("API_COMMUNITY_CLIENT_ID") !== false &&
+            getenv("API_COMMUNITY_CLIENT_SECRET") !== false;
+    }
+
     public function getClientId(): string
     {
-        return $this->config->get('community_api_client.client_id', '');
+        if ($this->useEnvironmentVariables()) {
+            return getenv("API_COMMUNITY_CLIENT_ID") ;
+        } else {
+            return $this->config->get('community_api_client.client_id', '');
+        }
     }
 
     public function setClientId(
         string $clientId
     ): self
     {
-        $this->config->save('community_api_client.client_id', $clientId);
+        if (!$this->useEnvironmentVariables()) {
+            $this->config->save('community_api_client.client_id', $clientId);
+        }
 
         return $this;
     }
 
     public function getClientSecret(): string
     {
-        return $this->config->get('community_api_client.client_secret', '');
+        if ($this->useEnvironmentVariables()) {
+            return getenv("API_COMMUNITY_CLIENT_SECRET") ;
+        } else {
+            return $this->config->get('community_api_client.client_secret', '');
+        }
     }
 
     public function setClientSecret(
         string $clientSecret
     ): self
     {
-        $this->config->save('community_api_client.client_secret', $clientSecret);
+        if (!$this->useEnvironmentVariables()) {
+            $this->config->save('community_api_client.client_secret', $clientSecret);
+        }
 
         return $this;
     }
 
     public function getEndpoint(): string
     {
-        return $this->config->get('community_api_client.endpoint', '');
+        if ($this->useEnvironmentVariables()) {
+            return getenv("API_COMMUNITY_ENDPOINT") ;
+        } else {
+            return $this->config->get('community_api_client.endpoint', '');
+        }
     }
 
     public function setEndpoint(
         string $endpoint
     ): self
     {
-        $this->config->save('community_api_client.endpoint', $endpoint);
+        if (!$this->useEnvironmentVariables()) {
+            $this->config->save('community_api_client.endpoint', $endpoint);
+        }
 
         return $this;
     }
