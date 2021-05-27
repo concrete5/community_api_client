@@ -64,6 +64,18 @@ concrete/bin/concrete5 c5:config set community_api_client.client_id your_client_
 concrete/bin/concrete5 c5:config set community_api_client.client_secret your_client_secret
 ```
 
+### Option 4: With environment variables
+
+You can also setup the credentials with environment variables. The following variables are used.
+
+```
+API_COMMUNITY_ENDPOINT
+API_COMMUNITY_CLIENT_ID
+API_COMMUNITY_CLIENT_SECRET
+```
+
+If environment variables are configured the concrete CMS configuration will be ignored. 
+
 ## Usage
 
 After you have configured the endpoint you can communicate with the api interface.
