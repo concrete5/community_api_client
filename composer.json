@@ -1,5 +1,5 @@
 {
-  "name": "concrete5/community_api_client",
+  "name": "concretecms/community_api_client",
   "description": "This package contains an api client that is able to connect with the community.",
   "license": "MIT",
   "prefer-stable": true,
